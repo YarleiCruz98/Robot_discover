@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.1 on win32)" generated="20240109 18:03:49.232" rpa="false" schemaversion="4">
+<suite id="s1" name="Signup" source="C:\Users\yarle\OneDrive\Documentos\Yarlei_Projetos\Robot_Discover\walkdog-robot\tests\signup.robot">
+<test id="s1-t1" name="Deve poder cadastrar um novo dog walker" line="7">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${dog_walker}</var>
+<arg>name=Yarlei Cruz</arg>
+<arg>email=yarlei@teste.com</arg>
+<arg>cpf=00000014141</arg>
+<arg>cep=04534011</arg>
+<arg>numero=1000</arg>
+<arg>complemento=quarto andar</arg>
+<arg>endereço_rua=Rua Joaquim Floriano</arg>
+<arg>bairro=Itaim Bibi</arg>
+<arg>cidade_uf=São Paulo/SP</arg>
+<arg>menssagem_validacao=ecebemos o seu cadastro e em breve retornaremos o contato.</arg>
+<arg>toretto_cnh=C:/Users/yarle/OneDrive/Documentos/Yarlei_Projetos/Robot_Discover/walkdog-robot/resources/fixtures/toretto.jpg</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240109 18:03:49.947" level="INFO">${dog_walker} = {'name': 'Yarlei Cruz', 'email': 'yarlei@teste.com', 'cpf': '00000014141', 'cep': '04534011', 'numero': '1000', 'complemento': 'quarto andar', 'endereço_rua': 'Rua Joaquim Floriano', 'bairro': 'Itaim ...</msg>
+<status status="PASS" starttime="20240109 18:03:49.947" endtime="20240109 18:03:49.947"/>
+</kw>
+<kw name="Go to signup page">
+<kw name="New Browser" library="Browser">
+<arg>browser=chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20240109 18:03:49.948" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\yarle\\OneDrive\\Documentos\\Yarlei_Projetos\\Robot_Discover\\walkdog-robot\\tests\\logs\\browser\\traces\\f6dffe9c-96bc-469b-8a7c-cbe49c386db8"}</msg>
+<msg timestamp="20240109 18:03:50.226" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\yarle\\OneDrive\\Documentos\\Yarlei_Projetos\\Robot_Discover\\walkdog-robot\\tests\\logs\\browser\\traces\\f6dffe9c-96bc-469b-8a7c-cbe49c386db8"}</msg>
+<status status="PASS" starttime="20240109 18:03:49.948" endtime="20240109 18:03:50.226"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>https://walkdog.vercel.app/signup</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20240109 18:03:50.685" level="INFO">Successfully initialized new page object and opened url: https://walkdog.vercel.app/signup</msg>
+<msg timestamp="20240109 18:03:50.685" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20240109 18:03:50.227" endtime="20240109 18:03:50.685"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>form h1</arg>
+<arg>visible</arg>
+<arg>timeout=5000</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20240109 18:03:50.717" level="INFO">Waited for Element with selector form h1 at state visible</msg>
+<status status="PASS" starttime="20240109 18:03:50.685" endtime="20240109 18:03:50.718"/>
+</kw>
+<kw name="Get Text" library="Browser">
+<arg>form h1</arg>
+<arg>equal</arg>
+<arg>Faça seu cadastro</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:50.741" level="INFO">Text: 'Faça seu cadastro'</msg>
+<status status="PASS" starttime="20240109 18:03:50.718" endtime="20240109 18:03:50.741"/>
+</kw>
+<status status="PASS" starttime="20240109 18:03:49.947" endtime="20240109 18:03:50.741"/>
+</kw>
+<kw name="Fill singup form">
+<arg>${dog_walker}</arg>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[placeholder="E-mail"]</arg>
+<arg>${dog_walker}[name]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:50.742" level="INFO">Fills the text 'Yarlei Cruz' in the given field.</msg>
+<status status="PASS" starttime="20240109 18:03:50.742" endtime="20240109 18:03:50.762"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[placeholder="CPF somente números"]</arg>
+<arg>${dog_walker}[cpf]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:50.762" level="INFO">Fills the text '00000014141' in the given field.</msg>
+<status status="PASS" starttime="20240109 18:03:50.762" endtime="20240109 18:03:50.780"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[placeholder="CEP"]</arg>
+<arg>${dog_walker}[cep]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:50.780" level="INFO">Fills the text '04534011' in the given field.</msg>
+<status status="PASS" starttime="20240109 18:03:50.780" endtime="20240109 18:03:50.793"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=input[value="Buscar CEP"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20240109 18:03:50.794" endtime="20240109 18:03:50.821"/>
+</kw>
+<kw name="Get Property" library="Browser">
+<arg>css=input[name="addressStreet"]</arg>
+<arg>value</arg>
+<arg>equal</arg>
+<arg>${dog_walker}[endereço_rua]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the ``property`` of the element found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:51.236" level="INFO">Property: 'Rua Joaquim Floriano'</msg>
+<status status="PASS" starttime="20240109 18:03:50.821" endtime="20240109 18:03:51.237"/>
+</kw>
+<kw name="Get Property" library="Browser">
+<arg>css=input[name="addressDistrict"]</arg>
+<arg>value</arg>
+<arg>equal</arg>
+<arg>${dog_walker}[bairro]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the ``property`` of the element found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:51.243" level="INFO">Property: 'Itaim Bibi'</msg>
+<status status="PASS" starttime="20240109 18:03:51.237" endtime="20240109 18:03:51.244"/>
+</kw>
+<kw name="Get Property" library="Browser">
+<arg>css=input[name="addressCityUf"]</arg>
+<arg>value</arg>
+<arg>equal</arg>
+<arg>${dog_walker}[cidade_uf]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the ``property`` of the element found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:51.250" level="INFO">Property: 'São Paulo/SP'</msg>
+<status status="PASS" starttime="20240109 18:03:51.244" endtime="20240109 18:03:51.251"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[placeholder="Número"]</arg>
+<arg>${dog_walker}[numero]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:51.251" level="INFO">Fills the text '1000' in the given field.</msg>
+<status status="PASS" starttime="20240109 18:03:51.251" endtime="20240109 18:03:51.266"/>
+</kw>
+<kw name="Get Property" library="Browser">
+<arg>css=input[name="addressNumber"]</arg>
+<arg>value</arg>
+<arg>equal</arg>
+<arg>${dog_walker}[numero]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the ``property`` of the element found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:51.275" level="INFO">Property: '1000'</msg>
+<status status="PASS" starttime="20240109 18:03:51.266" endtime="20240109 18:03:51.275"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[placeholder="Complemento"]</arg>
+<arg>${dog_walker}[complemento]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:51.275" level="INFO">Fills the text 'quarto andar' in the given field.</msg>
+<status status="PASS" starttime="20240109 18:03:51.275" endtime="20240109 18:03:51.290"/>
+</kw>
+<kw name="Get Property" library="Browser">
+<arg>css=input[name="addressDetails"]</arg>
+<arg>value</arg>
+<arg>equal</arg>
+<arg>${dog_walker}[complemento]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the ``property`` of the element found by ``selector``.</doc>
+<msg timestamp="20240109 18:03:51.298" level="INFO">Property: 'quarto andar'</msg>
+<status status="PASS" starttime="20240109 18:03:51.290" endtime="20240109 18:03:51.298"/>
+</kw>
+<kw name="Upload File By Selector" library="Browser">
+<arg>css=input[type="file"]</arg>
+<arg>${EXECDIR}/${dog_walker}[toretto_cnh]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Uploads file from `path` to file input element matched by selector.</doc>
+<msg timestamp="20240109 18:03:51.300" level="FAIL">ValueError: Nonexistent input file path 'C:Users\yarle\OneDrive\Documentos\Yarlei_Projetos\Robot_Discover\walkdog-robot\resources\fixtures\toretto.jpg'</msg>
+<status status="FAIL" starttime="20240109 18:03:51.299" endtime="20240109 18:03:51.301"/>
+</kw>
+<status status="FAIL" starttime="20240109 18:03:50.741" endtime="20240109 18:03:51.301"/>
+</kw>
+<kw name="Submit signup form">
+<status status="NOT RUN" starttime="20240109 18:03:51.302" endtime="20240109 18:03:51.302"/>
+</kw>
+<kw name="Popup should be">
+<arg>${dog_walker}[menssagem_validacao]</arg>
+<status status="NOT RUN" starttime="20240109 18:03:51.302" endtime="20240109 18:03:51.302"/>
+</kw>
+<status status="FAIL" starttime="20240109 18:03:49.944" endtime="20240109 18:03:51.302">ValueError: Nonexistent input file path 'C:Users\yarle\OneDrive\Documentos\Yarlei_Projetos\Robot_Discover\walkdog-robot\resources\fixtures\toretto.jpg'</status>
+</test>
+<doc>Suite de testes de cadastro de dog walker</doc>
+<status status="FAIL" starttime="20240109 18:03:49.233" endtime="20240109 18:03:51.343"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Signup">Signup</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
